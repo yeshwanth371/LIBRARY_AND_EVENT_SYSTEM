@@ -37,7 +37,7 @@
             include("DB_connect.php");
             if(isset($_POST['submit'])){
                 $search = mysqli_real_escape_string($conn, $_POST['search']);
-                $sql = "SELECT * FROM books WHERE bname LIKE '%$search%'";
+                $sql = "SELECT * FROM books WHERE bname LIKE '%$search%' OR author LIKE '%$search%' OR edition LIKE '%$search%' OR bid LIKE '%$search%'";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                 // output data of each row
@@ -47,16 +47,17 @@
                     <th>Book Name</th>
                     <th>Author</th>
                     <th>Edition</th>
+                    <th>E-Book</th>
                 </tr>";
                     while($row = $result->fetch_assoc()) {
 
-                        echo "<tr><td>" . $row["bid"]. "</td><td>" . $row["bname"] . "</td><td>". $row["author"]. "</td><td>". $row["edition"]. "</td></tr>";
+                        echo "<tr><td>" . $row["bid"]. "</td><td>" . $row["bname"] . "</td><td>". $row["author"]. "</td><td>". $row["edition"]. "</td><td><a href=" . $row['url'] . ">E-Book</a></td></tr>";
                     }
                     echo "</table>";
                 } else { echo "<script>if(window.confirm('Book you searched is Not available in the Library.....')){
                     window.location.href = 'view_books.php'}else{}</script>"; }
             }else{
-                $sql = "SELECT * FROM books ORDER BY 'bookname' DESC";
+                $sql = "SELECT * FROM books ORDER BY 'bname' DESC";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                 // output data of each row

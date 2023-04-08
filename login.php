@@ -15,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['regno'] = $user['regno'];
         $test = $_SESSION['regno'];
         if($test == 'admin'){
-            header("Location: adminHome.html");
+            header("Location: adminHome.php");
             exit();
         }
-        header("Location: Home.html");
+        header("Location: Home.php");
     } else {
         echo "<script>if(window.confirm('Invalid Credentials')){
             window.location.href = 'login.html'

@@ -9,29 +9,29 @@
             <div class="add-books">
                 <div class="row">
                 <div class="col-md-12 add-left">
-                    <h2 style="font-family: 'Times New Roman', Times, serif; text-align: center;">Add Book Here</h2>
-                    <form action="Add_books.php" method="POST" onsubmit="return validateForm()">
+                    <h2 style="font-family: 'Times New Roman', Times, serif; text-align: center;">Announce Event</h2>
+                    <form action="announceEvent.php" method="POST" onsubmit="return validateForm()">
                         <div class="form-group">
-                            <label>Book ID</label>
-                            <input type="text" name="bid" id="bid" class="form-control" required>
+                            <label>Event Name</label>
+                            <input type="text" name="title" id="title" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Book Name</label>
-                            <input type="text" name="bname" id="bname" class="form-control" required>
+                            <label>Venue</label>
+                            <input type="text" name="location" id="location" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Author</label>
-                            <input type="text" name="author" id="edition" class="form-control" required>
+                            <label>Description</label>
+                            <textarea name="description" id="description" class="form-control" required></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Edition</label>
-                            <input type="text" name="edition" id="edition" class="form-control" required>
+                            <label>Event Date</label>
+                            <input type="date" name="date" id="date" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Url</label>
-                            <input type="text" name="url" id="url" class="form-control" required>
+                            <label>Time</label>
+                            <input type="time" name="time" id="time" class="form-control" required>
                         </div>
-                        <input type="submit" class="submitBtn" value="Add Book">
+                        <input type="submit" class="submitBtn" value="Add Event">
                     </form>
                 </div>
                 </div>
@@ -83,42 +83,26 @@
         </style>
         <script>
             function validateForm(){
-                var bid = document.getElementById("bid").value;
-                var edition = document.getElementById("edition").value;
+                var title = document.getElementById("title").value;
+                var location = document.getElementById("location").value;
+                var description = document.getElementById("description").value;
+                
 
-                var re1 = /^[A-Za-z]{2}\d{5}$/
-                if(! re1.test(bid)){
-                    alert("Invalid Book Id")
+                //title validation must be a string of type alphanumeric
+                var titleRegex = /^[a-zA-Z0-9 ]+$/;
+                if(!titleRegex.test(title)){
+                    alert("Title is invalid");
+                    return false;
                 }
 
-                //book name is alphabets only
-                var bname = document.getElementById("bname").value;
-                var re2 = /^[A-Za-z]+$/
-                if(! re2.test(bname)){
-                    alert("Invalid Book Name")
+                //location validation must be a string of type alphanumeric
+                var locationRegex = /^[a-zA-Z0-9 ]+$/;
+                if(!locationRegex.test(location)){
+                    alert("Location is invalid");
+                    return false;
                 }
 
-                //autor is alphabets only
-                var author = document.getElementById("author").value;
-                var re2 = /^[A-Za-z]+$/
-                if(! re2.test(author)){
-                    alert("Invalid Author Name")
-                }
-
-                //edition is numbers only
-                var re3 = /^[0-9]+$/
-                if(! re3.test(edition)){
-                    alert("Invalid Edition")
-                }
-
-                //url is valid
-                var url = document.getElementById("url").value;
-                var re4 = /^(http|https):\/\/[a-zA-Z0-9-_.]+\.[a-zA-Z]{2,5}(\/[a-zA-Z0-9-_.]+)*$/
-                if(! re4.test(url)){
-                    alert("Invalid URL")
-                }
-
-
+                
                 
             }
         </script>
