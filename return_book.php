@@ -17,7 +17,11 @@ if(mysqli_num_rows($result) > 0){
     $status = 'inactive';
     $sql1 = "UPDATE `issuedbooks` SET `status`='inactive',`returndate`='$returndate' WHERE bid = '$bid' AND regno = '$regno'";
     $result1 = mysqli_query($conn, $sql1);
-    header('Location: issue_book.html');
+    if(!$result1){
+        echo "Error:" . $sql . "<br>" . mysqli_error($conn);
+    }
+    
+    header('Location: return_book.html');
 }else{        
     echo "error";
     

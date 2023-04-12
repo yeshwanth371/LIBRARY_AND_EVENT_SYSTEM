@@ -20,7 +20,7 @@
 </header>
 <div class="topnav" id="myTopnav">
   <a href="adminHome.html" class="active">Home</a>
-  <a href="Events.html">Events</a>
+  <a href="events.php">Events</a>
   <div class="dropdown">
     <button class="dropbtn">Books 
       <i class="fa fa-caret-down"></i>

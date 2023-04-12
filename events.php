@@ -23,6 +23,7 @@
         </header>
         <ul>
             <li style="float: right;"><a href="logout.php">Logout</a></li>
+            <li style="float: right;"><a href="deleteEvent.html">Delete Event</a></li>
             <li style="float: right;"><a href="announceEvent.html">Announce Event</a></li>
             <li style="float: left;"><a href="Home.php">Home</a></li>
         </ul>

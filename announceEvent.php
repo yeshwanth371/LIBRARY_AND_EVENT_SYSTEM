@@ -5,6 +5,7 @@ if(! isset($_SESSION['regno'])){
     exit();
 }
 include('DB_connect.php');
+$regno = $_SESSION['regno'];
 $title = mysqli_real_escape_string($conn, $_POST['title']);
 $location = mysqli_real_escape_string($conn, $_POST['location']);
 $description = mysqli_real_escape_string($conn, $_POST['description']);
@@ -18,7 +19,7 @@ if (mysqli_num_rows($result) >= 1){
     }else{}</script>";
     exit();
 }else{
-    $sql1 = "INSERT INTO events(title,location,description,date,time) VALUES ('$title','$location','$description','$date','$time')";
+    $sql1 = "INSERT INTO events(regno,title,location,description,date,time) VALUES ('$regno','$title','$location','$description','$date','$time')";
     $result = mysqli_query($conn, $sql1);
     if(! $result){
         echo "Error:" . $sql . "<br>" . mysqli_error($conn);

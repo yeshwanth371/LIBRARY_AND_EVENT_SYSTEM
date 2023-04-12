@@ -87,15 +87,7 @@
                     alert("Invalid Book Id")
                 }
 
-                //confirm before deleting
-                var confirmDelete = confirm("Are you sure you want to delete this book?");
-                if(confirmDelete){
-                    return true;
-                }
-                else{
-                    return false;
-                }
-
+                
                 //book name and author name are alphabetical
                 var re2 = /^[A-Za-z]+$/
                 if(! re2.test(bname)){

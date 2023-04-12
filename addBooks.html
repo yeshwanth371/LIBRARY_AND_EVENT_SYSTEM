@@ -31,6 +31,10 @@
                             <label>Url</label>
                             <input type="text" name="url" id="url" class="form-control" required>
                         </div>
+                        <div class="form-group">
+                            <label>Quantity (in Nos.)</label>
+                            <input type="text" name="count" id="count" class="form-control" required>
+                        </div>
                         <input type="submit" class="submitBtn" value="Add Book">
                     </form>
                 </div>
@@ -85,6 +89,7 @@
             function validateForm(){
                 var bid = document.getElementById("bid").value;
                 var edition = document.getElementById("edition").value;
+                var count = document.getElementById("count").value;
 
                 var re1 = /^[A-Za-z]{2}\d{5}$/
                 if(! re1.test(bid)){
@@ -111,11 +116,17 @@
                     alert("Invalid Edition")
                 }
 
+
                 //url is valid
                 var url = document.getElementById("url").value;
                 var re4 = /^(http|https):\/\/[a-zA-Z0-9-_.]+\.[a-zA-Z]{2,5}(\/[a-zA-Z0-9-_.]+)*$/
                 if(! re4.test(url)){
                     alert("Invalid URL")
+                }
+
+                //count is valid
+                if(! re3.test(count)){
+                    alert("Invalid Book count")
                 }
 
 
