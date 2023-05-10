@@ -67,11 +67,12 @@
                     <th>Book Name</th>
                     <th>Author</th>
                     <th>Edition</th>
+                    <th>Quantity</th>
                     <th>E-Book</th>
                 </tr>";
                     while($row = $result->fetch_assoc()) {
 
-                        echo "<tr><td>" . $row["bid"]. "</td><td>" . $row["bname"] . "</td><td>". $row["author"]. "</td><td>". $row["edition"]. "</td><td><a href=" . $row['url'] . ">E-Book</a></td></tr>";
+                        echo "<tr><td>" . $row["bid"]. "</td><td>" . $row["bname"] . "</td><td>". $row["author"]. "</td><td>". $row["edition"]. "</td><td>". $row["count"]. "</td><td><a href=" . $row['url'] . ">E-Book</a></td></tr>";
                     }
                     echo "</table>";
                 } else { echo "<script>if(window.confirm('Books are Not available in the Library.....')){
